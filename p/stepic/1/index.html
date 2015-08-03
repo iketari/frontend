@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=792, user-scalable=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link rel="stylesheet" href="../../shower/themes/tech-mail/styles/screen.css">
+    <link rel="stylesheet" href="/shower/themes/tech-mail/styles/screen.css">
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
@@ -22,22 +22,26 @@
     </section>
 
 
-/**
- * Делаем по плану!
- * https://docs.google.com/document/d/1ayAylj3_VLUdKYidqqET1WERqSTgcMp0eD9oO35dIvA/edit
- */
+
+  <!-- Делаем по плану! -->
+  <!-- https://docs.google.com/document/d/1ayAylj3_VLUdKYidqqET1WERqSTgcMp0eD9oO35dIvA/edit -->
+
 
     <section class="slide">
         <h2>Различия</h2>
         <div>
-            Here are some differences between the two languages:
+            <h3>
+                <b>Here are some differences between the two languages:</b>
+            </h3>
 
-            Java is a statically typed language; JavaScript is dynamic.
-            Java is class-based; JavaScript is prototype-based.
-            Java constructors are special functions that can only be called at object creation; JavaScript "constructors" are just standard functions.
-            Java requires all non-block statements to end with a semicolon; JavaScript inserts semicolons at the ends of certain lines.
-            Java uses block-based scoping; JavaScript uses function-based scoping.
-            Java has an implicit this scope for non-static methods, and implicit class scope; JavaScript has implicit global scope.
+            <ul style="font-size: 19px; line-height: 2;">
+                <li>Java is a statically typed language; JavaScript is dynamic.</li>
+                <li>Java is class-based; JavaScript is prototype-based.</li>
+                <li>Java constructors are special functions that can only be called at object creation; JavaScript "constructors" are just standard functions.</li>
+                <li>Java requires all non-block statements to end with a semicolon; JavaScript inserts semicolons at the ends of certain lines.</li>
+                <li>Java uses block-based scoping; JavaScript uses function-based scoping.</li>
+                <li>Java has an implicit this scope for non-static methods, and implicit class scope; JavaScript has implicit global scope.</li>
+            </ul>
         </div>
     </section>
 
@@ -53,57 +57,79 @@
 
     <section class="slide">
         <h2>Как пользователь видит интернет</h2>
-        <p>
-            1. Старый браузер
-            2. Новый браузрер
-            3. Смартфон
-
-            -----------------
-
-            Клики по ссылкам на сайтах!
-        </p>
+        <div>
+            <!-- TODO Еще две картинки на одном слайде     -->
+            <img src="../images/ie3_screen.jpg" alt="IE3">
+<!--             <ol>
+                <li>Старый браузер</li>
+                <li>Новый браузрер</li>
+                <li>Смартфон</li>
+            </ol> -->
+        </div>
     </section>
 
 
     <section class="slide">
         <h2>Документ на сервере</h2>
-        <p>
-            Схема
-            (Клик) --> (Запрос) --  Выбор документ на сервере  -> (Ответ) --> (Рендер результата)
-        </p>
-        <p>
-            Проблема: много однотипных документов
-        </p>
+        <div>
+            <p>
+                Схема
+                (Браузер(Клик)) --> (Сетевой уровень(Запрос)) --  (Сервер(Выбор документ на сервере))  -> (Сетевой уровень((Ответ)) --> Браузер(Рендер документа))
+            </p>
+            <p>
+                Проблема: много однотипных документов, копипаста
+            </p>
+            <p>
+                Фронтенд: все, только верстка в ClientSide
+                Бекенд: ничего.
+            </p>
+        </div>
     </section>
 
 
     <section class="slide">
         <h2>Динамическая генерация документов</h2>
-        <p>
-            Схема
-            (Клик) --> (Запрос) --  Генерация документа  -> (Ответ) --> (Рендер результата)
-        </p>
-        <p>
-            Проблема: генерация нового документа ради минимальных изменений
-        </p>
+        <div>
+            <p>
+                Схема
+                (Клик) --> (Запрос) --  (Сервер, (Генерация документа))  -> (Ответ) --> (Рендер документа)
+            </p>
+            <p>
+                Проблема: генерация нового документа ради минимальных изменений, нагрузка на сервер
+            </p>
+            <p>
+                Фронтенд: обработка данных, серверная шаблонизация
+                Бекенд: работа с БД, работа с файловой системой, сетевое взаимодействие с другими серверами, роутинг
+            </p>
+        </div>
     </section>
 
     <section class="slide">
         <h2>Динамическое обновление документов</h2>
-        <p>
-            Схема
-            (Клик) --> (AJAX запрос) --  Генерация части документа  -> (Ответ) --> (Дорендер результата)
-        </p>
-        <p>
-            Проблема: много бизнес-логики на сервере, большие накладные издержки
-        </p>
+        <div>
+            <p>
+                Схема (как на прошлом слайде)
+                (Клик) --> (Запрос) --  (Сервер, (Генерация документа))  -> (Ответ) --> (Рендер документа)
+
+                + без перезагрузки документа
+
+                Схема
+                (Клик) --> (AJAX запрос) --  Генерация фрагмента документа  -> (Ответ) --> (Изменение исходного документа)
+            </p>
+            <p>
+                Проблема: много бизнес-логики на сервере, большие накладные издержки, нет структуры и снова копипаста
+            </p>
+        </div>
     </section>
 
     <section class="slide">
         <h2>Транспорт данных</h2>
         <p>
             Схема
-            (Клик) --> (AJAX запрос) --  Генерация части данных  -> (Ответ) --> (Рендер результата)
+            (Клик) --> (AJAX запрос) --  Генерация данных  -> (Ответ) --> (Рендер результата в браузере)
+        </p>
+        <p>
+            Проблем: "толстый клиент"
         </p>
     </section>
 
@@ -2815,6 +2841,6 @@
 
     <div class="progress"><div></div></div>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../shower/shower.js"></script>
+    <script src="/shower/shower.js"></script>
 </body>
 </html>
