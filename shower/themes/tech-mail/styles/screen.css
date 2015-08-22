@@ -769,3 +769,40 @@ a {
 	margin: 0;
 	size:   1137px 640px
 }
+
+
+
+/*Modify for stepic.org format*/
+
+.stepic .slide.title {
+	background-image: none;
+}
+
+.stepic .slide h2 {
+	background-image: none;
+    padding-right: 48px;
+}
+
+.stepic .slide h2:after {
+	right: 48px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
